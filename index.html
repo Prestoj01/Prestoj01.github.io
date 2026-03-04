@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #7fff6e;
+      --accent2: #6ebaff;
+      --accent3: #ffb86e;
+      --text: #e8e8f0;
+      --muted: #6e6e88;
+      --font-display: 'Fraunces', serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── CURSOR ─────────────────────────────── */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.1s ease;
+      mix-blend-mode: screen;
+    }
+    .cursor-ring {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(127,255,110,0.3);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.15s ease, width 0.2s, height 0.2s, opacity 0.2s;
+    }
+
+    /* ─── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── HERO ────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+    }
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--text);
+    }
+    .hero-sub {
+      margin-top: 2rem;
+      color: var(--muted);
+      max-width: 42ch;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+    .btn-ghost { border-color: var(--border); color: var(--muted); }
+    .btn-ghost:hover { border-color: var(--muted); background: transparent; color: var(--text); }
+
+    /* Grid decoration */
+    .hero-grid {
+      position: absolute;
+      right: 3rem; top: 50%;
+      transform: translateY(-50%);
+      width: 320px; height: 320px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      gap: 4px;
+      opacity: 0.15;
+    }
+    .hero-grid span {
+      background: var(--accent);
+      border-radius: 1px;
+      animation: gridpulse 3s ease-in-out infinite;
+    }
+    .hero-grid span:nth-child(3n) { background: var(--accent2); animation-delay: 0.5s; }
+    .hero-grid span:nth-child(5n) { background: var(--accent3); animation-delay: 1s; }
+    @keyframes gridpulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── SECTION COMMON ─────────────────────── */
+    section { padding: 6rem 3rem; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── ABOUT ───────────────────────────────── */
+    #about {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .skill-item {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-item:hover { border-color: var(--accent); color: var(--accent); }
+    .skill-item::before { content: '▸'; color: var(--accent); font-size: 10px; }
+
+    /* ─── PROJECTS ────────────────────────────── */
+    #projects { border-top: 1px solid var(--border); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .project-card {
+      background: var(--bg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: var(--surface); }
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+    .project-card:hover::after { height: 100%; }
+    .project-num {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .tag {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tag.highlight { border-color: var(--accent2); color: var(--accent2); }
+    .project-links { display: flex; gap: 1rem; }
+    .project-link {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); }
+    .project-link svg { width: 12px; height: 12px; }
+
+    /* ─── CONTACT ─────────────────────────────── */
+    #contact {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 8rem 3rem;
+    }
+    #contact h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    #contact p { color: var(--muted); margin-bottom: 2.5rem; }
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ──────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* ─── SCROLL REVEAL ───────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-grid { display: none; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">YourName.dev</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">CS Student · Class of 2025</div>
+    <h1>Building things that <em>matter.</em></h1>
+    <p class="hero-sub">
+      4 years of turning late nights and coffee into software. 
+      I build full-stack applications, algorithms, and everything in between. 
+      Currently seeking new opportunities.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+
+    <div class="hero-grid" id="heroGrid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text reveal">
+      <div class="section-label">01 — About</div>
+      <h2>Hi, I'm <span style="color:var(--accent)">Your Name</span></h2>
+      <p>
+        I'm a Computer Science student at [Your University], graduating in May 2025. 
+        Over the past 4 years I've built projects ranging from full-stack web apps 
+        to compilers and ML models.
+      </p>
+      <p>
+        I love working at the intersection of design and engineering — writing clean, 
+        efficient code that also looks and feels great.
+      </p>
+      <br/>
+      <a href="#" class="btn" style="width:fit-content">Download Resume</a>
+    </div>
+
+    <div class="reveal" style="animation-delay:0.1s">
+      <div class="section-label">Tech Stack</div>
+      <div class="skills-grid">
+        <div class="skill-item">Python</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">React</div>
+        <div class="skill-item">Node.js</div>
+        <div class="skill-item">C / C++</div>
+        <div class="skill-item">SQL</div>
+        <div class="skill-item">Git</div>
+        <div class="skill-item">Docker</div>
+        <div class="skill-item">AWS</div>
+        <div class="skill-item">Linux</div>
+        <div class="skill-item">TypeScript</div>
+        <div class="skill-item">Java</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">02 — Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-num">001</div>
+        <div class="project-title">Project Alpha</div>
+        <p class="project-desc">
+          A full-stack web application that does X. Built with React and Node.js, 
+          featuring real-time updates via WebSockets and a PostgreSQL backend.
+        </p>
+        <div class="project-tags">
+          <span class="tag highlight">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">WebSockets</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.1s">
+        <div class="project-num">002</div>
+        <div class="project-title">ML Classifier</div>
+        <p class="project-desc">
+          A machine learning pipeline that classifies Y with 94% accuracy. 
+          Trained on a custom dataset, deployed as a REST API using FastAPI.
+        </p>
+        <div class="project-tags">
+          <span class="tag highlight">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Docker</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.2s">
+        <div class="project-num">003</div>
+        <div class="project-title">Mini Compiler</div>
+        <p class="project-desc">
+          A compiler for a subset of C built from scratch in Java. 
+          Implements lexing, parsing, semantic analysis, and x86 code generation.
+        </p>
+        <div class="project-tags">
+          <span class="tag highlight">Java</span>
+          <span class="tag">Compilers</span>
+          <span class="tag">x86 ASM</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.3s">
+        <div class="project-num">004</div>
+        <div class="project-title">Add Your Project</div>
+        <p class="project-desc">
+          Describe your project here. What problem does it solve? What did you learn building it? 
+          Keep it concise but compelling.
+        </p>
+        <div class="project-tags">
+          <span class="tag highlight">Your</span>
+          <span class="tag">Tech</span>
+          <span class="tag">Stack</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" style="justify-content:center; margin-bottom:2rem">03 — Contact</div>
+    <h2>Let's work together.</h2>
+    <p>Open to full-time roles, internships, and interesting side projects.</p>
+    <div class="contact-links">
+      <a href="mailto:you@email.com" class="btn">Email Me</a>
+      <a href="https://github.com/yourusername" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/yourprofile" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Your Name. Built with HTML, CSS & JS.</span>
+    <span style="color:var(--accent)">yourusername.github.io</span>
+  </footer>
+
+  <script>
+    // ── Custom cursor ─────────────────────────
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function animateCursor() {
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      cursor.style.left = mx - 4 + 'px'; cursor.style.top = my - 4 + 'px';
+      ring.style.left = rx - 16 + 'px'; ring.style.top = ry - 16 + 'px';
+      requestAnimationFrame(animateCursor);
+    })();
+    document.querySelectorAll('a, button, .project-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.style.width = '48px'; ring.style.height = '48px'; ring.style.opacity = '0.5'; });
+      el.addEventListener('mouseleave', () => { ring.style.width = '32px'; ring.style.height = '32px'; ring.style.opacity = '1'; });
+    });
+
+    // ── Hero grid ─────────────────────────────
+    const grid = document.getElementById('heroGrid');
+    if (grid) {
+      for (let i = 0; i < 64; i++) {
+        const s = document.createElement('span');
+        s.style.animationDelay = (Math.random() * 3) + 's';
+        s.style.animationDuration = (2 + Math.random() * 3) + 's';
+        grid.appendChild(s);
+      }
+    }
+
+    // ── Scroll reveal ─────────────────────────
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
