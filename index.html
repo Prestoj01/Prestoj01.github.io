@@ -344,6 +344,18 @@
       font-weight: 700;
       color: var(--dark);
     }
+    .project-card.wide { grid-column: 1 / -1; }
+    .project-card.wide .project-desc { max-width: 760px; }
+    .project-new {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
     .project-type {
       font-size: 11px;
       text-transform: uppercase;
@@ -511,10 +523,10 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-eyebrow">Clemson University · CS + AI Minor · Class of 2026</div>
+      <div class="hero-eyebrow">Clemson University · B.S. Computer Science, AI Minor · 2026</div>
       <h1>Building software at the <em>intersection</em> of AI & data.</h1>
       <p class="hero-bio">
-        I'm a Computer Science student with a 3.80 GPA and hands-on experience shipping AI tools, 
+        I'm a Computer Science graduate with hands-on experience shipping AI tools, 
         data pipelines, and full-stack applications — from the Department of Defense to university campuses.
       </p>
       <div class="hero-badges">
@@ -545,18 +557,20 @@
       <div class="about-grid">
         <div class="reveal">
           <p>
-            I'm a senior at Clemson University studying Computer Science with a minor in Artificial Intelligence, 
-            graduating May 2026. Over the past 4 years I've built everything from VR simulations and AI chatbots 
-            to enterprise data pipelines used by the U.S. Air Force.
+            I graduated from Clemson University in May 2026 with a B.S. in Computer Science and a minor in 
+            Artificial Intelligence. I've built everything from VR simulations and AI chatbots to enterprise 
+            data pipelines used by the U.S. Air Force.
           </p>
           <p>
-            This past summer I worked as an AI & Data Engineering Scholar at Deloitte Consulting, where I built 
+            In summer 2025 I worked as an AI & Data Engineering Scholar at Deloitte Consulting, where I built 
             Palantir-based pipelines to model workforce attrition for the DoD. Before that I helped launch 
-            Clemson's Career Innovation Lab, developing AI-driven tools that supported 500+ students.
+            Clemson's Career Innovation Lab, developing AI-driven tools that supported 500+ students. Most recently 
+            I've been building Animal Tracker Map, an interactive map of wildlife sightings and migration routes 
+            backed by a Python data pipeline that refreshes itself every week.
           </p>
           <p>
             Outside of work I'm an avid athlete — marathon runner, triathlete, tennis and pickleball player — 
-            and President's List student who believes in building things that actually matter.
+            and President's List graduate who believes in building things that actually matter.
           </p>
           <div class="about-stats">
             <div class="stat-card">
@@ -568,7 +582,7 @@
               <div class="stat-label">Internships</div>
             </div>
             <div class="stat-card">
-              <div class="stat-num">13+</div>
+              <div class="stat-num">15+</div>
               <div class="stat-label">Projects Built</div>
             </div>
             <div class="stat-card">
@@ -580,7 +594,8 @@
         <div class="skills-section reveal" style="transition-delay:0.1s">
           <h3>Languages</h3>
           <div class="skill-pills">
-            <span class="pill">Python</span><span class="pill">JavaScript</span>
+            <span class="pill">Python</span><span class="pill">TypeScript</span>
+            <span class="pill">JavaScript</span>
             <span class="pill">C++</span><span class="pill">Java</span>
             <span class="pill">C</span><span class="pill">C#</span>
             <span class="pill">HTML / CSS</span><span class="pill">SQL</span>
@@ -588,7 +603,9 @@
           </div>
           <h3>Frameworks & Tools</h3>
           <div class="skill-pills">
-            <span class="pill">React</span><span class="pill">.NET</span>
+            <span class="pill">React</span><span class="pill">Vite</span>
+            <span class="pill">MapLibre GL</span><span class="pill">Flask</span>
+            <span class="pill">.NET</span><span class="pill">pytest / Vitest</span>
             <span class="pill">Git / GitHub</span><span class="pill">Unix</span>
             <span class="pill">Unity</span><span class="pill">MySQL</span>
             <span class="pill">OpenAI API</span>
@@ -596,7 +613,8 @@
           <h3>Platforms & Data</h3>
           <div class="skill-pills">
             <span class="pill">Palantir Foundry</span><span class="pill">Dataiku</span>
-            <span class="pill">Databricks</span><span class="pill">Gimp</span>
+            <span class="pill">Databricks</span><span class="pill">GitHub Actions</span>
+            <span class="pill">Cloudflare</span><span class="pill">Gimp</span>
             <span class="pill">Slack / Teams</span>
           </div>
           <h3>Certifications</h3>
@@ -682,6 +700,30 @@
 
       <!-- Featured -->
       <div class="projects-featured">
+
+        <div class="project-card wide reveal">
+          <div class="project-card-header">
+            <div class="project-name">Animal Tracker Map</div>
+            <span><span class="project-new">Latest</span><span class="project-type">Personal · Data + Web</span></span>
+          </div>
+          <p class="project-desc">
+            A static site that maps species sightings, migration tracks and conservation status. A Python 
+            pipeline pulls sightings from GBIF, animal tracks from Movebank and species profiles from Wikipedia, 
+            then validates the data with tests. A weekly GitHub Actions job refreshes everything and redeploys 
+            the site automatically. The front end is TypeScript and MapLibre GL, built with Vite.
+          </p>
+          <div class="project-tags">
+            <span class="tag">TypeScript</span><span class="tag">MapLibre GL</span>
+            <span class="tag">Vite</span><span class="tag">Python</span>
+            <span class="tag">GitHub Actions</span><span class="tag">Cloudflare</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Prestoj01/animal-tracker-map" target="_blank" class="proj-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
 
         <div class="project-card reveal">
           <div class="project-card-header">
@@ -784,21 +826,29 @@
             <div class="mini-card-name">Martian Jumper</div>
             <div class="mini-card-tech">Python · Game Dev</div>
           </a>
-          <a href="https://github.com/Prestoj01/checkers-s24-binary-bandits" target="_blank" class="mini-card">
-            <div class="mini-card-name">Checkers</div>
-            <div class="mini-card-tech">Team Project</div>
-          </a>
           <a href="https://github.com/Prestoj01/RPGproject" target="_blank" class="mini-card">
             <div class="mini-card-name">Text-Based RPG</div>
-            <div class="mini-card-tech">Class Project</div>
+            <div class="mini-card-tech">Java · Class Project</div>
           </a>
           <a href="https://github.com/Prestoj01/T9_Converter" target="_blank" class="mini-card">
             <div class="mini-card-name">T9 Converter</div>
-            <div class="mini-card-tech">Algorithms</div>
+            <div class="mini-card-tech">C · Algorithms</div>
           </a>
           <a href="https://github.com/Prestoj01/Blackjack-Project" target="_blank" class="mini-card">
             <div class="mini-card-name">Blackjack</div>
-            <div class="mini-card-tech">Class Project</div>
+            <div class="mini-card-tech">Java · Class Project</div>
+          </a>
+          <a href="https://github.com/Prestoj01/DeckOfCards" target="_blank" class="mini-card">
+            <div class="mini-card-name">Deck of Cards</div>
+            <div class="mini-card-tech">C++ · Data Structures</div>
+          </a>
+          <a href="https://github.com/Prestoj01/Cipher" target="_blank" class="mini-card">
+            <div class="mini-card-name">Caesar Cipher</div>
+            <div class="mini-card-tech">C++ · Queues</div>
+          </a>
+          <a href="https://github.com/Prestoj01/TicTacToe" target="_blank" class="mini-card">
+            <div class="mini-card-name">Tic-Tac-Toe</div>
+            <div class="mini-card-tech">Java · Game</div>
           </a>
         </div>
       </div>
@@ -814,7 +864,7 @@
         <h2 class="section-title">Let's Connect</h2>
       </div>
       <p class="contact-sub">
-        I'm graduating May 2026 and actively seeking full-time roles in software engineering, 
+        I'm a 2026 Clemson Computer Science graduate, open to opportunities in software engineering, 
         data engineering, and tech consulting. Always happy to chat.
       </p>
       <div class="contact-links reveal">
