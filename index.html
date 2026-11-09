@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://prestoj01.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +29,7 @@
       --accent-ink: #ffffff;
 
       /* Type */
-      --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --display: 'Inter Tight', 'Instrument Sans', system-ui, -apple-system, sans-serif;
       --sans: 'Instrument Sans', system-ui, -apple-system, sans-serif;
       --text-xs: 0.75rem;                           /* 12  labels */
       --text-sm: 0.875rem;                          /* 14  meta, stacks */
@@ -156,7 +156,7 @@
       padding-bottom: var(--s-5);
     }
     .nav-name {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: var(--text-md);
       font-weight: 500;
       color: var(--ink);
@@ -178,13 +178,12 @@
       padding-bottom: clamp(var(--s-7), 8vw, var(--s-9));
     }
     .hero h1 {
-      font-family: var(--serif);
-      font-weight: 350;
+      font-family: var(--display);
+      font-weight: 600;
       font-size: var(--text-display);
       line-height: var(--leading-tight);
-      letter-spacing: -0.025em;
+      letter-spacing: -0.035em;
       color: var(--ink);
-      font-variation-settings: 'opsz' 144;
     }
     .hero-bio {
       max-width: 34rem;
@@ -218,8 +217,8 @@
     }
     .section-grid > .label { position: sticky; top: 5.5rem; align-self: start; padding-top: var(--s-2); }
     h2.section-title {
-      font-family: var(--serif);
-      font-weight: 400;
+      font-family: var(--display);
+      font-weight: 600;
       font-size: var(--text-xl);
       line-height: var(--leading-snug);
       letter-spacing: -0.015em;
@@ -257,9 +256,9 @@
     }
     .exp-date { font-size: var(--text-sm); color: var(--muted); padding-top: var(--s-1); }
     .exp-title {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: var(--text-lg);
-      font-weight: 450;
+      font-weight: 600;
       color: var(--ink);
       line-height: var(--leading-snug);
     }
@@ -315,8 +314,8 @@
       margin-top: var(--s-5);
     }
     .project-name {
-      font-family: var(--serif);
-      font-weight: 400;
+      font-family: var(--display);
+      font-weight: 600;
       font-size: var(--text-lg);
       color: var(--ink);
       letter-spacing: -0.01em;
@@ -376,8 +375,8 @@
     /* ── CONTACT ─────────────────────────────── */
     .contact { background: var(--paper-deep); }
     .contact-line {
-      font-family: var(--serif);
-      font-weight: 350;
+      font-family: var(--display);
+      font-weight: 600;
       font-size: var(--text-2xl);
       line-height: 1.12;
       letter-spacing: -0.02em;
@@ -454,10 +453,11 @@
 
   <header id="top" class="wrap hero">
     <div>
-      <h1>AI &amp; data engineer at Deloitte, building tools for a state benefits system.</h1>
+      <h1>I turn messy data into AI tools that teams rely on.</h1>
       <p class="hero-bio">
-        I'm Preston Meekins, a 2026 Clemson Computer Science graduate based in Austin, Texas. On the side I
-        build free web apps, from a live wildlife map to a weekend trip planner.
+        I'm Preston Meekins, an AI &amp; Data Engineer at Deloitte Consulting and a 2026 Clemson Computer
+        Science graduate based in Austin, Texas. On the side I build free web apps, from a live wildlife map
+        to a weekend trip planner.
       </p>
       <div class="hero-links">
         <a href="mailto:prestonmeekins@gmail.com" class="btn">Email me</a>
@@ -492,8 +492,8 @@
             <p>
               Outside of work I build free tools for real problems: World Animal Tracker, an interactive map of 24
               species backed by a self-refreshing data pipeline, plus a weekend trip planner, an ESL lesson
-              planner, and a personalized newsletter. I'm also a marathon runner and triathlete, and I play tennis
-              and pickleball.
+              planner, and a personalized newsletter. When I'm not building, I'm lifting, playing tennis,
+              cooking, traveling, hiking, or cycling.
             </p>
           </div>
           <ul class="facts">
