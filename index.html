@@ -240,7 +240,10 @@
     .exp-bullets li::marker { color: var(--muted); }
 
     /* ── PROJECTS ────────────────────────────── */
-    .feature { margin-bottom: var(--s-8); }
+    #projects .section-grid > .label { position: static; }
+    #projects h2.section-title { margin-bottom: 0; }
+    .feature { grid-column: 1 / -1; margin-top: var(--s-5); margin-bottom: var(--s-7); }
+    .projects-rest { grid-column: 2; }
     .feature-img {
       display: block;
       overflow: hidden;
@@ -249,7 +252,8 @@
     }
     .feature-img img {
       width: 100%;
-      aspect-ratio: 1200 / 630;
+      aspect-ratio: 16 / 9;
+      object-position: top left;
       object-fit: cover;
     }
     .feature-text {
@@ -367,6 +371,8 @@
       .section-grid > .label { position: static; padding-top: 0; }
       .about-body, .feature-text, .project-row { grid-template-columns: 1fr; gap: var(--s-4); }
       .pair { grid-template-columns: 1fr; gap: var(--s-7); }
+      .projects-rest { grid-column: auto; }
+      .feature { margin-top: 0; }
       .exp-item { grid-template-columns: 1fr; gap: var(--s-2); }
       .exp-date { padding-top: 0; }
     }
@@ -532,11 +538,11 @@
   <section id="projects">
     <div class="wrap section-grid">
       <div class="label">Projects</div>
-      <div>
+      <h2 class="section-title">Five free apps shipped this fall, plus coursework from Clemson.</h2>
 
         <article class="feature">
           <a class="feature-img" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker">
-            <img src="images/world-animal-tracker.jpg" alt="World Animal Tracker: a dark globe dotted with animal sightings across Africa" width="1200" height="630" loading="lazy" />
+            <img src="images/world-animal-tracker.jpg" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
           </a>
           <div class="feature-text">
             <div>
@@ -558,10 +564,11 @@
           </div>
         </article>
 
+      <div class="projects-rest">
         <div class="pair">
           <article>
             <a class="feature-img" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Weekender">
-              <img src="images/weekend-trip-planner.png" alt="Weekender home page with a form to start a new weekend trip" width="1200" height="630" loading="lazy" />
+              <img src="images/weekend-trip-planner.jpg" alt="Weekender sample trip to Asheville with a three-day forecast, itinerary and map of stops" width="2000" height="1125" loading="lazy" />
             </a>
             <h3 class="project-name">Weekender</h3>
             <div class="project-kind">Personal project · Fall 2026</div>
@@ -578,7 +585,7 @@
           </article>
           <article>
             <a class="feature-img" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open ESL Lesson Planner">
-              <img src="images/teaching-english-planner.png" alt="ESL Lesson Planner form for planning a lesson by topic, CEFR level and learners' first language" width="1200" height="630" loading="lazy" />
+              <img src="images/teaching-english-planner.jpg" alt="A generated A2 lesson plan on the present perfect, with aims, form, meaning and concept-check questions" width="2000" height="1125" loading="lazy" />
             </a>
             <h3 class="project-name">ESL Lesson Planner</h3>
             <div class="project-kind">Personal project · Fall 2026</div>
