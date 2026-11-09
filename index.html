@@ -165,7 +165,6 @@
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: 50% 25%;
-      filter: saturate(0.9);
     }
 
     /* ── SECTIONS ────────────────────────────── */
@@ -197,36 +196,24 @@
     }
     .prose p { margin-bottom: var(--s-4); max-width: var(--measure); }
     .prose p:last-child { margin-bottom: 0; }
-    .facts { list-style: none; border-top: 1px solid var(--rule); }
-    .facts li {
-      display: grid;
-      grid-template-columns: 6.5rem 1fr;
-      gap: var(--s-4);
-      padding: var(--s-3) 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: var(--text-sm);
-    }
-    .facts .label { padding-top: 0.1rem; }
+    .facts { list-style: none; display: grid; gap: var(--s-5); align-content: start; padding-top: var(--s-1); }
+    .facts li { display: grid; gap: var(--s-1); font-size: var(--text-sm); }
     .facts strong { font-weight: 500; color: var(--ink); }
 
     .skills {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: var(--s-6) var(--s-7);
-      margin-top: var(--s-7);
-      padding-top: var(--s-6);
-      border-top: 1px solid var(--rule);
+      margin-top: var(--s-8);
     }
     .skills h3 { margin-bottom: var(--s-2); }
 
     /* ── EXPERIENCE ──────────────────────────── */
-    .exp-list { border-top: 1px solid var(--rule); }
+    .exp-list { display: grid; gap: var(--s-7); }
     .exp-item {
       display: grid;
       grid-template-columns: 10.5rem 1fr;
       gap: var(--s-6);
-      padding: var(--s-6) 0;
-      border-bottom: 1px solid var(--rule);
     }
     .exp-date { font-size: var(--text-sm); color: var(--muted); padding-top: var(--s-1); }
     .exp-title {
@@ -264,9 +251,7 @@
       width: 100%;
       aspect-ratio: 1200 / 630;
       object-fit: cover;
-      transition: transform 0.6s ease;
     }
-    .feature-img:hover img { transform: scale(1.015); }
     .feature-text {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
@@ -304,16 +289,14 @@
     .pair .project-name { margin-top: var(--s-5); }
     .pair .project-desc { margin-top: var(--s-3); }
 
-    .project-list { border-top: 1px solid var(--rule); }
+    .project-list { display: grid; gap: var(--s-7); }
     .project-row {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: var(--s-6);
-      padding: var(--s-6) 0;
-      border-bottom: 1px solid var(--rule);
     }
 
-    .more { margin-top: var(--s-7); }
+    .more { margin-top: var(--s-8); }
     .more .label { margin-bottom: var(--s-4); }
     .more-list {
       list-style: none;
@@ -329,10 +312,10 @@
       border-bottom: 1px solid var(--rule);
       text-decoration: none;
       color: var(--ink);
-      transition: color 0.2s, padding-left 0.2s;
+      transition: color 0.2s;
     }
     .more-list a span { color: var(--muted); font-size: var(--text-sm); }
-    .more-list a:hover { color: var(--accent); padding-left: 0.35rem; }
+    .more-list a:hover { color: var(--accent); }
 
     /* ── CONTACT ─────────────────────────────── */
     .contact { background: var(--paper-deep); }
@@ -371,12 +354,9 @@
     .contact-line a, .project-stack { overflow-wrap: anywhere; }
 
     /* ── MOTION ──────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; transition: none; }
-      .feature-img img, .more-list a { transition: none; }
+      *, *::before, *::after { transition: none !important; }
     }
 
     /* ── RESPONSIVE ──────────────────────────── */
@@ -393,7 +373,6 @@
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .skills, .more-list { grid-template-columns: 1fr; }
-      .facts li { grid-template-columns: 5.5rem 1fr; }
       .footer-inner { flex-direction: column; gap: var(--s-1); }
     }
   </style>
@@ -436,9 +415,9 @@
     <div class="wrap section-grid">
       <div class="label">About</div>
       <div>
-        <h2 class="section-title reveal">I've built AI and data tools for the U.S. Air Force, a state benefits program, and 500+ Clemson students.</h2>
+        <h2 class="section-title">I've built AI and data tools for the U.S. Air Force, a state benefits program, and 500+ Clemson students.</h2>
         <div class="about-body">
-          <div class="prose reveal">
+          <div class="prose">
             <p>
               At Deloitte Consulting I work on a state government benefits project. I built an automated tool
               that speeds up file conversion for hundreds of benefits notices, maintain the state's inventory
@@ -456,13 +435,13 @@
               and pickleball.
             </p>
           </div>
-          <ul class="facts reveal">
+          <ul class="facts">
             <li><span class="label">Education</span><span><strong>B.S. Computer Science</strong>, minor in AI<br />Clemson University, 2026 · GPA 3.81</span></li>
             <li><span class="label">Honors</span><span>Multiple Dean's List and President's List semesters</span></li>
           </ul>
         </div>
 
-        <div class="skills reveal">
+        <div class="skills">
           <div>
             <h3 class="label">Languages</h3>
             <p>Python, SQL, TypeScript, JavaScript, Java, C++, C, C#, HTML/CSS</p>
@@ -494,7 +473,7 @@
       <div class="label">Experience</div>
       <div class="exp-list">
 
-        <div class="exp-item reveal">
+        <div class="exp-item">
           <div class="exp-date">Sep 2026 – Present</div>
           <div>
             <div class="exp-title">AI &amp; Data Engineer<span class="exp-current">Current</span></div>
@@ -508,7 +487,7 @@
           </div>
         </div>
 
-        <div class="exp-item reveal">
+        <div class="exp-item">
           <div class="exp-date">Jun 2025 – Jul 2025</div>
           <div>
             <div class="exp-title">AI &amp; Data Engineering Summer Scholar</div>
@@ -521,7 +500,7 @@
           </div>
         </div>
 
-        <div class="exp-item reveal">
+        <div class="exp-item">
           <div class="exp-date">Jan 2025 – May 2025</div>
           <div>
             <div class="exp-title">Generative AI &amp; Business Research Intern</div>
@@ -533,7 +512,7 @@
           </div>
         </div>
 
-        <div class="exp-item reveal">
+        <div class="exp-item">
           <div class="exp-date">Jan 2024 – Dec 2024</div>
           <div>
             <div class="exp-title">Information Technology Intern</div>
@@ -555,7 +534,7 @@
       <div class="label">Projects</div>
       <div>
 
-        <article class="feature reveal">
+        <article class="feature">
           <a class="feature-img" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker">
             <img src="images/world-animal-tracker.jpg" alt="World Animal Tracker: a dark globe dotted with animal sightings across Africa" width="1200" height="630" loading="lazy" />
           </a>
@@ -580,7 +559,7 @@
         </article>
 
         <div class="pair">
-          <article class="reveal">
+          <article>
             <a class="feature-img" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Weekender">
               <img src="images/weekend-trip-planner.png" alt="Weekender home page with a form to start a new weekend trip" width="1200" height="630" loading="lazy" />
             </a>
@@ -597,7 +576,7 @@
               <a href="https://github.com/Prestoj01/weekend-trip-planner" target="_blank" rel="noopener" class="link arrow">Code</a>
             </div>
           </article>
-          <article class="reveal">
+          <article>
             <a class="feature-img" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open ESL Lesson Planner">
               <img src="images/teaching-english-planner.png" alt="ESL Lesson Planner form for planning a lesson by topic, CEFR level and learners' first language" width="1200" height="630" loading="lazy" />
             </a>
@@ -617,7 +596,7 @@
         </div>
 
         <div class="project-list">
-          <article class="project-row reveal">
+          <article class="project-row">
             <div>
               <h3 class="project-name">Personal Press</h3>
               <div class="project-kind">Personal project · Fall 2026</div>
@@ -635,7 +614,7 @@
             </div>
           </article>
 
-          <article class="project-row reveal">
+          <article class="project-row">
             <div>
               <h3 class="project-name">Driver Incentive Program</h3>
               <div class="project-kind">Team course project · Fall 2025</div>
@@ -653,7 +632,7 @@
             </div>
           </article>
 
-          <article class="project-row reveal">
+          <article class="project-row">
             <div>
               <h3 class="project-name">Presto Fitness Pal</h3>
               <div class="project-kind">Personal project · AI</div>
@@ -670,7 +649,7 @@
             </div>
           </article>
 
-          <article class="project-row reveal">
+          <article class="project-row">
             <div>
               <h3 class="project-name">VR Fishing Simulator</h3>
               <div class="project-kind">Team course project · VR</div>
@@ -687,7 +666,7 @@
             </div>
           </article>
 
-          <article class="project-row reveal">
+          <article class="project-row">
             <div>
               <h3 class="project-name">TigerTix</h3>
               <div class="project-kind">Team course project · Web</div>
@@ -705,7 +684,7 @@
           </article>
         </div>
 
-        <div class="more reveal">
+        <div class="more">
           <h3 class="label">More on GitHub</h3>
           <ul class="more-list">
             <li><a href="https://github.com/Prestoj01/Weather_App" target="_blank" rel="noopener">Weather App <span>JavaScript</span></a></li>
@@ -727,7 +706,7 @@
   <section id="contact" class="contact">
     <div class="wrap section-grid">
       <div class="label">Contact</div>
-      <div class="reveal">
+      <div>
         <p class="contact-line">
           Let's talk. Say hello at <a href="mailto:prestonmeekins@gmail.com" class="link">prestonmeekins@gmail.com</a>
         </p>
@@ -756,12 +735,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 
 </body>
