@@ -269,6 +269,16 @@
       color: var(--ink);
     }
 
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 4.5rem;
+    }
+    .pair .feature-img { background: var(--paper-deep); }
+    .pair .project-name { font-size: 1.45rem; margin-top: 1.25rem; }
+    .pair .project-desc { margin-top: 0.75rem; }
+
     .project-list { border-top: 1px solid var(--rule); }
     .project-row {
       display: grid;
@@ -335,7 +345,7 @@
     }
 
     /* Let grid columns shrink instead of overflowing on small screens */
-    .hero > *, .section-grid > *, .about-body > *, .exp-item > *, .feature-text > *, .project-row > * { min-width: 0; }
+    .hero > *, .section-grid > *, .about-body > *, .exp-item > *, .feature-text > *, .project-row > *, .pair > * { min-width: 0; }
     .contact-line a, .project-stack { overflow-wrap: anywhere; }
 
     /* ── MOTION ──────────────────────────────── */
@@ -354,6 +364,7 @@
       .section-grid { grid-template-columns: 1fr; gap: 1.25rem; }
       .section-grid > .label { position: static; padding-top: 0; }
       .about-body, .feature-text, .project-row { grid-template-columns: 1fr; gap: 1rem; }
+      .pair { grid-template-columns: 1fr; gap: 3rem; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .exp-date { padding-top: 0; }
     }
@@ -420,8 +431,9 @@
               chatbots supported more than 500 students.
             </p>
             <p>
-              Outside of work I build things like World Animal Tracker, an interactive map of 24 species backed
-              by a self-refreshing data pipeline. I'm also a marathon runner and triathlete, and I play tennis
+              Outside of work I build free tools for real problems: World Animal Tracker, an interactive map of 24
+              species backed by a self-refreshing data pipeline, plus a weekend trip planner, an ESL lesson
+              planner, and a personalized newsletter. I'm also a marathon runner and triathlete, and I play tennis
               and pickleball.
             </p>
           </div>
@@ -440,11 +452,11 @@
           </div>
           <div>
             <h3 class="label">Data &amp; AI</h3>
-            <p>Palantir Foundry, Dataiku, Databricks, MySQL, OpenAI API, generative AI, prompt engineering</p>
+            <p>Palantir Foundry, Dataiku, Databricks, MySQL, Postgres, Claude API, OpenAI API, generative AI, prompt engineering</p>
           </div>
           <div>
             <h3 class="label">Web &amp; Cloud</h3>
-            <p>React, Flask, .NET, MapLibre GL JS, AWS, Cloudflare Pages, GitHub Actions</p>
+            <p>React, Next.js, Flask, .NET, MapLibre GL JS, Leaflet, AWS, Cloudflare, Vercel, GitHub Pages, GitHub Actions</p>
           </div>
           <div>
             <h3 class="label">Tools</h3>
@@ -550,7 +562,62 @@
           </div>
         </article>
 
+        <div class="pair">
+          <article class="reveal">
+            <a class="feature-img" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Weekender">
+              <img src="images/weekend-trip-planner.png" alt="Weekender home page with a form to start a new weekend trip" width="1200" height="630" loading="lazy" />
+            </a>
+            <h3 class="project-name">Weekender</h3>
+            <div class="project-kind">Personal project · Fall 2026</div>
+            <p class="project-desc">
+              Plan a weekend getaway in one place: a live 16-day forecast, nearby sights and food from
+              OpenStreetMap, a day-by-day itinerary on a map, a weather-aware packing list, and a budget. Trips
+              are shared through a compressed link, so there's no backend, sign-up, or API key.
+            </p>
+            <div class="project-stack">React · TypeScript · Vite · Leaflet · Open-Meteo · Vitest</div>
+            <div class="project-links">
+              <a href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
+              <a href="https://github.com/Prestoj01/weekend-trip-planner" target="_blank" rel="noopener" class="link arrow">Code</a>
+            </div>
+          </article>
+          <article class="reveal">
+            <a class="feature-img" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open ESL Lesson Planner">
+              <img src="images/teaching-english-planner.png" alt="ESL Lesson Planner form for planning a lesson by topic, CEFR level and learners' first language" width="1200" height="630" loading="lazy" />
+            </a>
+            <h3 class="project-name">ESL Lesson Planner</h3>
+            <div class="project-kind">Personal project · Fall 2026</div>
+            <p class="project-desc">
+              Generates complete, editable CELTA-style lesson plans for English teachers from a topic, CEFR level,
+              and the learners' first language. Plans come from an offline template engine or, optionally,
+              Claude with the teacher's own API key, both validated against one shared schema.
+            </p>
+            <div class="project-stack">React · TypeScript · Zod · Claude API · Vitest · GitHub Pages</div>
+            <div class="project-links">
+              <a href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
+              <a href="https://github.com/Prestoj01/teaching-english-planner" target="_blank" rel="noopener" class="link arrow">Code</a>
+            </div>
+          </article>
+        </div>
+
         <div class="project-list">
+          <article class="project-row reveal">
+            <div>
+              <h3 class="project-name">Personal Press</h3>
+              <div class="project-kind">Personal project · Fall 2026</div>
+            </div>
+            <div>
+              <p class="project-desc">
+                A free newsletter about exactly the topics you pick from 40+ options, or your own. It collects
+                the latest headlines per topic and emails them on a daily, weekly, or monthly schedule, with
+                double opt-in signup, one-click unsubscribe, and exactly-once delivery from a daily cron job.
+              </p>
+              <div class="project-stack">Next.js · TypeScript · Postgres (Neon) · Vercel Cron · Nodemailer</div>
+              <div class="project-links">
+                <a href="https://github.com/Prestoj01/personal-newsletter" target="_blank" rel="noopener" class="link arrow">Code</a>
+              </div>
+            </div>
+          </article>
+
           <article class="project-row reveal">
             <div>
               <h3 class="project-name">Driver Incentive Program</h3>
