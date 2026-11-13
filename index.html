@@ -542,8 +542,8 @@
             </p>
             <p data-reveal>
               Outside of work I build free tools for real problems: an interactive map of 24 animal species
-              backed by a self-refreshing data pipeline, a weekend trip planner, an ESL lesson planner, and a
-              personalized newsletter.
+              backed by a self-refreshing data pipeline, a weekend trip planner, an ESL lesson planner, a
+              personalized newsletter, and an app that turns what's in your fridge into recipes.
             </p>
           </div>
           <ul class="facts" data-reveal>
@@ -621,11 +621,11 @@
         </div>
         <div data-reveal>
           <h3 class="mono">Data &amp; AI</h3>
-          <p>Palantir Foundry, Dataiku, Databricks, MySQL, Claude API, OpenAI API, generative AI, prompt engineering</p>
+          <p>Palantir Foundry, Dataiku, Databricks, MySQL, Claude API, Gemini API, OpenAI API, generative AI, prompt engineering</p>
         </div>
         <div data-reveal>
           <h3 class="mono">Web &amp; Cloud</h3>
-          <p>React, Next.js, Tailwind CSS, Flask, .NET, MapLibre GL JS, Leaflet, AWS, Cloudflare, GitHub Pages, GitHub Actions</p>
+          <p>React, Next.js, Tailwind CSS, Flask, .NET, MapLibre GL JS, Leaflet, AWS, Cloudflare Workers, GitHub Pages, GitHub Actions</p>
         </div>
         <div data-reveal>
           <h3 class="mono">Tools</h3>
@@ -733,6 +733,28 @@
 
       <div class="works">
         <article class="work">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner">
+            <img src="images/fridge-scanner.jpg" alt="Fridge Scanner showing six healthy recipes, starting with a spinach and tomato omelette that uses only ingredients on hand" width="2000" height="1125" loading="lazy" />
+          </a>
+          <div class="work-text" data-reveal>
+            <h3 class="project-name">Fridge Scanner</h3>
+            <div class="project-kind mono">Personal project · Fall 2026</div>
+            <p class="project-desc">
+              Turns what's in your fridge or pantry into healthy recipes with step-by-step instructions, and
+              shows what you'd still need to buy. It's built to read photos with a Gemini vision model behind
+              a Cloudflare Worker that holds the API key, rate limits requests, and validates the model's
+              output. The live demo runs in offline mode: you type your ingredients and it matches them
+              against a built-in recipe library.
+            </p>
+            <div class="project-stack">React · TypeScript · Vite · Cloudflare Workers · Gemini API · Vitest</div>
+            <div class="project-links">
+              <a href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
+              <a href="https://github.com/Prestoj01/Fridge-Scanner" target="_blank" rel="noopener" class="link arrow">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Weekender">
             <img src="images/weekend-trip-planner.jpg" alt="Weekender sample trip to Asheville with a three-day forecast, itinerary and map of stops" width="2000" height="1125" loading="lazy" />
           </a>
@@ -754,15 +776,16 @@
 
         <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open ESL Lesson Planner">
-            <img src="images/teaching-english-planner.jpg" alt="A generated A2 lesson plan on the present perfect, with aims, form, meaning and concept-check questions" width="2000" height="1125" loading="lazy" />
+            <img src="images/teaching-english-planner.jpg" alt="A generated A2 lesson plan on the present perfect, with a timeline of six timed stages, aims and language analysis" width="2000" height="1125" loading="lazy" />
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">ESL Lesson Planner</h3>
             <div class="project-kind mono">Personal project · Fall 2026</div>
             <p class="project-desc">
               Generates complete, editable CELTA-style lesson plans for English teachers from a topic, CEFR level,
-              and the learners' first language. Plans come from an offline template engine or, optionally,
-              Claude with the teacher's own API key, both validated against one shared schema.
+              and the learners' first language, with a timeline showing how the minutes are spent. Plans come
+              from an offline template engine or, optionally, Claude with the teacher's own API key, both
+              validated against one shared schema.
             </p>
             <div class="project-stack">React · TypeScript · Zod · Claude API · Vitest · GitHub Pages</div>
             <div class="project-links">
