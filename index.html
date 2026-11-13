@@ -27,8 +27,8 @@
       --muted: #4a6274;
       --line: #c0d4df;
       --primary: #1d5f96;
-      --accent: #e0a100;        /* graphics and large type */
-      --accent-text: #825a00;   /* small text on paper */
+      --accent: #f5bd1f;        /* graphics and fills */
+      --accent-text: #a87800;   /* large handwritten notes only (3:1+) */
       --night: #0c2030;
       --night-text: #eaf3f8;
       --night-muted: #9cb4c2;
@@ -113,7 +113,7 @@
       padding-bottom: 2px;
       transition: color 0.2s, background-size 0.35s var(--ease);
     }
-    .link:hover { color: var(--accent-text); background-size: 0 1px; background-position: 100% 100%; }
+    .link:hover { color: var(--primary); background-size: 0 1px; background-position: 100% 100%; }
     .arrow::after { content: '↗'; display: inline-block; margin-left: 0.3em; font-size: 0.9em; transition: transform 0.3s var(--ease); }
     .arrow:hover::after { transform: translate(3px, -3px); }
 
@@ -321,7 +321,7 @@
     .exp-date { padding-top: 0.5rem; }
     .exp-title { font: 700 var(--text-lg)/1.2 var(--display); letter-spacing: -0.03em; color: var(--ink); }
     .exp-company { font-size: var(--text-sm); color: var(--muted); margin-top: var(--s-1); }
-    .exp-current { display: inline-block; margin-left: var(--s-3); padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--accent-text); color: #fff; font: 500 0.6875rem/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 0.3em; }
+    .exp-current { display: inline-block; margin-left: var(--s-3); padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--accent); color: var(--ink); font: 500 0.6875rem/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 0.3em; }
     .exp-bullets { margin-top: var(--s-4); padding-left: 1.1rem; max-width: 44rem; }
     .exp-bullets li { margin-bottom: var(--s-2); }
     .exp-bullets li::marker { color: var(--accent); }
@@ -401,7 +401,7 @@
     .cursor {
       position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
       display: grid; place-items: center; width: 92px; height: 92px; margin: -46px 0 0 -46px;
-      border-radius: 50%; background: var(--accent-text); color: #fff;
+      border-radius: 50%; background: var(--accent); color: var(--ink);
       font: 600 var(--text-sm)/1 var(--sans);
       transform: translate(var(--x, -200px), var(--y, -200px)) scale(var(--s, 0));
       transition: transform 0.18s ease-out;
