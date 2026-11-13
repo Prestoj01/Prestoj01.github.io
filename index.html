@@ -33,6 +33,15 @@
       --night-text: #ece7da;
       --night-muted: #a7b2a9;
       --peach: #ff9d6e;       /* accent on the dark section */
+      --btn-hover: #17201b;
+      --trail-base: #b9b19f;
+      --night-line: #2f4037;
+      --night-line-2: #4a5b52;
+      --shadow: 23, 32, 27;
+      --topo: rgba(36, 73, 60, 0.13);
+      --topo-bold: rgba(36, 73, 60, 0.28);
+      --topo-night: rgba(236, 231, 218, 0.09);
+      --topo-night-bold: rgba(255, 157, 110, 0.26);
 
       /* Type */
       --display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
@@ -121,7 +130,7 @@
       transition: background-color 0.2s, transform 0.25s var(--ease);
       will-change: transform;
     }
-    .btn:hover { background: var(--ink); }
+    .btn:hover { background: var(--btn-hover); }
     .btn:active { transform: scale(0.96); }
     .btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--peach); transition: transform 0.3s var(--ease); }
     .btn:hover .dot { transform: scale(1.6); }
@@ -195,12 +204,12 @@
       background: var(--card);
       padding: 12px 12px 0;
       border-radius: 4px;
-      box-shadow: 0 1px 2px rgba(23,32,27,0.08), 0 18px 40px -12px rgba(23,32,27,0.28);
+      box-shadow: 0 1px 2px rgba(var(--shadow), 0.08), 0 18px 40px -12px rgba(var(--shadow), 0.28);
       transform: rotate(3deg);
       transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
       will-change: transform;
     }
-    .snap:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); box-shadow: 0 1px 2px rgba(23,32,27,0.08), 0 30px 60px -16px rgba(23,32,27,0.35); }
+    .snap:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); box-shadow: 0 1px 2px rgba(var(--shadow), 0.08), 0 30px 60px -16px rgba(var(--shadow), 0.35); }
     .snap img { width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; object-position: 50% 22%; border-radius: 2px; }
     .snap figcaption { padding: 0.65rem 0 0.85rem; text-align: center; font-size: 1.7rem; }
     .tape {
@@ -303,7 +312,7 @@
     .exp { background: var(--paper-2); }
     .exp-list { position: relative; display: grid; gap: var(--s-8); padding-left: 72px; }
     .trail { position: absolute; left: 0; top: 0; width: 48px; overflow: visible; pointer-events: none; }
-    .trail .base { fill: none; stroke: #b9b19f; stroke-width: 2; stroke-dasharray: 2 8; stroke-linecap: round; }
+    .trail .base { fill: none; stroke: var(--trail-base); stroke-width: 2; stroke-dasharray: 2 8; stroke-linecap: round; }
     .trail .done { fill: none; stroke: var(--clay); stroke-width: 2.5; stroke-linecap: round; }
     .trail .stop { fill: var(--paper-2); stroke: var(--muted); stroke-width: 2; transition: fill 0.4s, stroke 0.4s, r 0.4s var(--ease); }
     .trail .stop.on { fill: var(--clay); stroke: var(--clay); r: 8px; }
@@ -323,7 +332,7 @@
       border-radius: var(--radius);
       border: 1px solid var(--line);
       background: var(--paper-2);
-      box-shadow: 0 24px 50px -28px rgba(23,32,27,0.45);
+      box-shadow: 0 24px 50px -28px rgba(var(--shadow), 0.45);
     }
     .shot img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; transition: transform 1.2s var(--ease), opacity 0.5s; will-change: transform; }
     .shot:hover img { transform: scale(1.035); }
@@ -401,14 +410,14 @@
     /* ── CONTACT ─────────────────────────────── */
     .contact { background: var(--night); color: var(--night-text); isolation: isolate; overflow: hidden; }
     .contact .mono { color: var(--night-muted); }
-    .contact .section-head::after { background: #2f4037; }
+    .contact .section-head::after { background: var(--night-line); }
     .contact h2 { font-size: var(--text-2xl); line-height: 1.02; letter-spacing: -0.03em; color: var(--night-text); max-width: 15ch; }
     .contact h2 em { font-style: normal; color: var(--peach); }
     .contact-sub { margin-top: var(--s-6); max-width: 34rem; font-size: var(--text-md); color: var(--night-muted); }
     .email { color: var(--night-text); font-weight: 600; overflow-wrap: anywhere; }
     .copy {
       margin-left: var(--s-2); padding: 0.2rem 0.6rem;
-      border: 1px solid #4a5b52; border-radius: 999px; background: transparent; color: var(--night-muted);
+      border: 1px solid var(--night-line-2); border-radius: 999px; background: transparent; color: var(--night-muted);
       font: 500 0.6875rem/1.5 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
       transition: color 0.2s, border-color 0.2s, background-color 0.2s, transform 0.2s var(--ease);
       vertical-align: 0.15em;
@@ -420,7 +429,7 @@
     .contact .btn:hover { background: #fff; }
     .contact .btn .dot { background: var(--clay); }
     .contact .link:hover { color: var(--peach); }
-    footer { position: relative; border-top: 1px solid #2a3a32; }
+    footer { position: relative; border-top: 1px solid var(--night-line); }
     .footer-inner { display: flex; justify-content: space-between; gap: var(--s-4); padding-top: var(--s-5); padding-bottom: var(--s-5); font-size: var(--text-sm); color: var(--night-muted); }
 
     /* ── RESPONSIVE ──────────────────────────── */
@@ -733,28 +742,6 @@
 
       <div class="works">
         <article class="work">
-          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner">
-            <img src="images/fridge-scanner.jpg" alt="Fridge Scanner showing six healthy recipes, starting with a spinach and tomato omelette that uses only ingredients on hand" width="2000" height="1125" loading="lazy" />
-          </a>
-          <div class="work-text" data-reveal>
-            <h3 class="project-name">Fridge Scanner</h3>
-            <div class="project-kind mono">Personal project · Fall 2026</div>
-            <p class="project-desc">
-              Turns what's in your fridge or pantry into healthy recipes with step-by-step instructions, and
-              shows what you'd still need to buy. It's built to read photos with a Gemini vision model behind
-              a Cloudflare Worker that holds the API key, rate limits requests, and validates the model's
-              output. The live demo runs in offline mode: you type your ingredients and it matches them
-              against a built-in recipe library.
-            </p>
-            <div class="project-stack">React · TypeScript · Vite · Cloudflare Workers · Gemini API · Vitest</div>
-            <div class="project-links">
-              <a href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/Fridge-Scanner" target="_blank" rel="noopener" class="link arrow">Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Weekender">
             <img src="images/weekend-trip-planner.jpg" alt="Weekender sample trip to Asheville with a three-day forecast, itinerary and map of stops" width="2000" height="1125" loading="lazy" />
           </a>
@@ -812,6 +799,28 @@
             <div class="project-links">
               <a href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" class="link arrow">Live site</a>
               <a href="https://github.com/Prestoj01/personal-newsletter" target="_blank" rel="noopener" class="link arrow">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner">
+            <img src="images/fridge-scanner.jpg" alt="Fridge Scanner showing six healthy recipes, starting with a spinach and tomato omelette that uses only ingredients on hand" width="2000" height="1125" loading="lazy" />
+          </a>
+          <div class="work-text" data-reveal>
+            <h3 class="project-name">Fridge Scanner</h3>
+            <div class="project-kind mono">Personal project · Fall 2026</div>
+            <p class="project-desc">
+              Turns what's in your fridge or pantry into healthy recipes with step-by-step instructions, and
+              shows what you'd still need to buy. It's built to read photos with a Gemini vision model behind
+              a Cloudflare Worker that holds the API key, rate limits requests, and validates the model's
+              output. The live demo runs in offline mode: you type your ingredients and it matches them
+              against a built-in recipe library.
+            </p>
+            <div class="project-stack">React · TypeScript · Vite · Cloudflare Workers · Gemini API · Vitest</div>
+            <div class="project-links">
+              <a href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
+              <a href="https://github.com/Prestoj01/Fridge-Scanner" target="_blank" rel="noopener" class="link arrow">Code</a>
             </div>
           </div>
         </article>
@@ -973,8 +982,9 @@
       function topo(canvas) {
         const ctx = canvas.getContext('2d');
         const dark = canvas.dataset.topo === 'dark';
-        const thin = dark ? 'rgba(236,231,218,0.09)' : 'rgba(36,73,60,0.13)';
-        const bold = dark ? 'rgba(255,157,110,0.26)' : 'rgba(36,73,60,0.28)';
+        const css = getComputedStyle(root);
+        const thin = css.getPropertyValue(dark ? '--topo-night' : '--topo').trim();
+        const bold = css.getPropertyValue(dark ? '--topo-night-bold' : '--topo-bold').trim();
         const host = canvas.parentElement;
         let w = 0, h = 0, cols = 0, rows = 0, cell = 26, field, t = Math.random() * 50;
         let px = -9999, py = -9999, tx = -9999, ty = -9999, amp = 0, ampTarget = 0;
