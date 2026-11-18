@@ -91,7 +91,7 @@
       overflow-x: hidden;
     }
     a { color: inherit; }
-    img, svg { display: block; max-width: 100%; }
+    img, svg, picture { display: block; max-width: 100%; }
     img { height: auto; }
     h1, h2, h3 { text-wrap: balance; }
     p, li { text-wrap: pretty; }
@@ -521,7 +521,10 @@
       <div class="snap-wrap" data-parallax="-0.06">
         <span class="tape" aria-hidden="true"></span>
         <figure class="snap">
-          <img src="images/preston.jpg?v=d3530a52" alt="Portrait of Preston Meekins" width="1500" height="1001" />
+          <picture>
+            <source type="image/webp" srcset="images/preston-400.webp?v=c5422e22 400w, images/preston-800.webp?v=e77b2f62 800w, images/preston-1200.webp?v=20a4913e 1200w" sizes="(max-width: 960px) 210px, 330px" />
+            <img src="images/preston.jpg?v=d3530a52" alt="Portrait of Preston Meekins" width="1500" height="1001" />
+          </picture>
           <figcaption class="hand">hi, I'm Preston</figcaption>
         </figure>
       </div>
@@ -720,7 +723,10 @@
 
       <article class="feature">
         <a class="shot" data-clip data-tilt data-cursor="Open" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker">
-          <img src="images/world-animal-tracker.jpg?v=e7be8b52" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
+          <picture>
+            <source type="image/webp" srcset="images/world-animal-tracker-800.webp?v=7985fd37 800w, images/world-animal-tracker-1280.webp?v=6a6578f6 1280w, images/world-animal-tracker-1920.webp?v=bd3a09b4 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 1060px" />
+            <img src="images/world-animal-tracker.jpg?v=e7be8b52" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
+          </picture>
         </a>
         <div class="feature-text">
           <div data-reveal>
@@ -747,7 +753,10 @@
       <div class="works">
         <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Friday Ticket">
-            <img src="images/weekend-trip-planner.jpg?v=d7f588c3" alt="Friday Ticket sample trip to Asheville with illustrated weather tiles, ticket-stub itinerary days and a route drawn on the map" width="2000" height="1125" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/weekend-trip-planner-800.webp?v=302ddd16 800w, images/weekend-trip-planner-1280.webp?v=4a060507 1280w, images/weekend-trip-planner-1920.webp?v=22a434d1 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
+              <img src="images/weekend-trip-planner.jpg?v=d7f588c3" alt="Friday Ticket sample trip to Asheville with illustrated weather tiles, ticket-stub itinerary days and a route drawn on the map" width="2000" height="1125" loading="lazy" />
+            </picture>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Friday Ticket</h3>
@@ -768,7 +777,10 @@
 
         <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open Hello Class">
-            <img src="images/teaching-english-planner.jpg?v=9d109cff" alt="Hello Class home page laid out like a teacher's desk, with a handwritten lesson card, a sticky note and a scrolling band of learners' languages" width="2000" height="1125" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/teaching-english-planner-800.webp?v=d2ac0caf 800w, images/teaching-english-planner-1280.webp?v=e18d9f5d 1280w, images/teaching-english-planner-1920.webp?v=1979444c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
+              <img src="images/teaching-english-planner.jpg?v=9d109cff" alt="Hello Class home page laid out like a teacher's desk, with a handwritten lesson card, a sticky note and a scrolling band of learners' languages" width="2000" height="1125" loading="lazy" />
+            </picture>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Hello Class</h3>
@@ -789,7 +801,10 @@
 
         <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" aria-label="Open Extra Extra">
-            <img src="images/personal-newsletter.jpg?v=f0cb3c0f" alt="Extra Extra front page styled as a broadsheet, with a live headline ticker, a kinetic banner headline and a preview edition for AI, tennis, cooking, travel and hiking" width="2000" height="1125" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/personal-newsletter-800.webp?v=7ea7369d 800w, images/personal-newsletter-1280.webp?v=1c5c81a0 1280w, images/personal-newsletter-1920.webp?v=4c6400b3 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
+              <img src="images/personal-newsletter.jpg?v=f0cb3c0f" alt="Extra Extra front page styled as a broadsheet, with a live headline ticker, a kinetic banner headline and a preview edition for AI, tennis, cooking, travel and hiking" width="2000" height="1125" loading="lazy" />
+            </picture>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Extra Extra</h3>
@@ -810,7 +825,10 @@
 
         <article class="work">
           <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner">
-            <img src="images/fridge-scanner.jpg?v=f75abc60" alt="Fridge Scanner styled as a fridge door: seven ingredients as colorful magnets, with Chilly the fridge mascot saying Yum, keep 'em coming" width="2000" height="1125" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/fridge-scanner-800.webp?v=2f303902 800w, images/fridge-scanner-1280.webp?v=23d49602 1280w, images/fridge-scanner-1920.webp?v=b6116d1c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
+              <img src="images/fridge-scanner.jpg?v=f75abc60" alt="Fridge Scanner styled as a fridge door: seven ingredients as colorful magnets, with Chilly the fridge mascot saying Yum, keep 'em coming" width="2000" height="1125" loading="lazy" />
+            </picture>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Fridge Scanner</h3>
