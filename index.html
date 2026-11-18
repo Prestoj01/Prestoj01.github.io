@@ -136,6 +136,12 @@
     }
     .btn:hover { background: var(--btn-hover); }
     .btn:active { transform: scale(0.96); }
+    .btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+    .btn-ghost .dl { display: inline-block; transition: transform 0.3s var(--ease); }
+    .btn-ghost:hover .dl { transform: translateY(2px); }
+    .contact .btn-ghost { background: transparent; color: var(--night-text); box-shadow: inset 0 0 0 1.5px var(--night-muted); }
+    .contact .btn-ghost:hover { background: var(--night-text); color: var(--night); box-shadow: inset 0 0 0 1.5px var(--night-text); }
     .btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-night); transition: transform 0.3s var(--ease); }
     .btn:hover .dot { transform: scale(1.6); }
 
@@ -513,7 +519,7 @@
         </p>
         <div class="hero-links" data-reveal style="--i:7">
           <a href="mailto:prestonmeekins@gmail.com" class="btn" data-magnetic><span class="dot"></span>Email me</a>
-          <a href="#projects" class="link">See projects</a>
+          <a href="Preston_Meekins_Resume.pdf" class="btn btn-ghost" download><span class="dl" aria-hidden="true">↓</span>Résumé (PDF)</a>
           <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn</a>
           <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub</a>
         </div>
@@ -522,7 +528,7 @@
         <span class="tape" aria-hidden="true"></span>
         <figure class="snap">
           <picture>
-            <source type="image/webp" srcset="images/preston-400.webp?v=c5422e22 400w, images/preston-800.webp?v=e77b2f62 800w, images/preston-1200.webp?v=20a4913e 1200w" sizes="(max-width: 960px) 210px, 330px" />
+            <source type="image/webp" srcset="images/preston-400.webp?v=63c7ee87 400w, images/preston-800.webp?v=66cd7ecd 800w, images/preston-1200.webp?v=dab9f115 1200w" sizes="(max-width: 960px) 210px, 330px" />
             <img src="images/preston.jpg?v=d3530a52" alt="Portrait of Preston Meekins" width="1500" height="1001" />
           </picture>
           <figcaption class="hand">hi, I'm Preston</figcaption>
@@ -934,6 +940,7 @@
       </p>
       <div class="contact-links" data-reveal>
         <a href="mailto:prestonmeekins@gmail.com" class="btn" data-magnetic><span class="dot"></span>Email me</a>
+        <a href="Preston_Meekins_Resume.pdf" class="btn btn-ghost" download><span class="dl" aria-hidden="true">↓</span>Résumé (PDF)</a>
         <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn</a>
         <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub</a>
       </div>
