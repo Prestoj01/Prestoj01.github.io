@@ -362,6 +362,29 @@
     .js .shot[data-clip].in img { transform: scale(1); }
     .js .shot[data-clip].in:hover img { transform: scale(1.035); }
     .js .shot:not(.loaded) img { opacity: 0; }
+    .shot .clip {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: top left;
+      opacity: 0; transition: opacity 0.6s var(--ease), transform 1.2s var(--ease);
+      pointer-events: none;
+    }
+    .shot.playing .clip { opacity: 1; }
+    .shot:hover .clip { transform: scale(1.035); }
+
+    .section-head .clip-toggle { order: 3; }
+    .clip-toggle {
+      display: inline-flex; align-items: center; gap: var(--s-2);
+      padding: 0.35rem 0.75rem; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--card); color: var(--muted); cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .clip-toggle:hover { color: var(--ink); border-color: var(--muted); }
+    .clip-icon { position: relative; width: 9px; height: 10px; }
+    .clip-icon::before, .clip-icon::after { content: ''; position: absolute; top: 0; bottom: 0; width: 3px; background: currentColor; border-radius: 1px; }
+    .clip-icon::before { left: 0; }
+    .clip-icon::after { right: 0; }
+    .clip-toggle[aria-pressed="true"] .clip-icon::before { width: 0; height: 0; left: 1px; background: none; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent currentColor; border-radius: 0; }
+    .clip-toggle[aria-pressed="true"] .clip-icon::after { display: none; }
 
     .feature { margin-bottom: var(--s-9); perspective: 1400px; }
     .feature .shot { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
@@ -735,7 +758,7 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="wrap section-pad">
-      <div class="section-head" data-reveal><span class="mono">Selected work</span></div>
+      <div class="section-head" data-reveal><span class="mono">Selected work</span><button type="button" class="clip-toggle mono" aria-pressed="false" hidden><span class="clip-icon" aria-hidden="true"></span><span class="clip-label">Pause previews</span></button></div>
 
       <article class="feature">
         <a class="shot" data-clip data-tilt data-cursor="Open" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker">
@@ -743,6 +766,7 @@
             <source type="image/webp" srcset="images/world-animal-tracker-800.webp?v=7985fd37 800w, images/world-animal-tracker-1280.webp?v=6a6578f6 1280w, images/world-animal-tracker-1920.webp?v=bd3a09b4 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 1060px" />
             <img src="images/world-animal-tracker.jpg?v=e7be8b52" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
           </picture>
+          <video class="clip" muted loop playsinline preload="none" data-src="media/world-animal-tracker.mp4?v=816d2e18" aria-hidden="true" tabindex="-1"></video>
         </a>
         <div class="feature-text">
           <div data-reveal>
@@ -773,6 +797,7 @@
               <source type="image/webp" srcset="images/weekend-trip-planner-800.webp?v=302ddd16 800w, images/weekend-trip-planner-1280.webp?v=4a060507 1280w, images/weekend-trip-planner-1920.webp?v=22a434d1 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/weekend-trip-planner.jpg?v=d7f588c3" alt="Friday Ticket sample trip to Asheville with illustrated weather tiles, ticket-stub itinerary days and a route drawn on the map" width="2000" height="1125" loading="lazy" />
             </picture>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/weekend-trip-planner.mp4?v=2dbde0e5" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Friday Ticket</h3>
@@ -797,6 +822,7 @@
               <source type="image/webp" srcset="images/teaching-english-planner-800.webp?v=d2ac0caf 800w, images/teaching-english-planner-1280.webp?v=e18d9f5d 1280w, images/teaching-english-planner-1920.webp?v=1979444c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/teaching-english-planner.jpg?v=9d109cff" alt="Hello Class home page laid out like a teacher's desk, with a handwritten lesson card, a sticky note and a scrolling band of learners' languages" width="2000" height="1125" loading="lazy" />
             </picture>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/teaching-english-planner.mp4?v=885d2080" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Hello Class</h3>
@@ -821,6 +847,7 @@
               <source type="image/webp" srcset="images/personal-newsletter-800.webp?v=7ea7369d 800w, images/personal-newsletter-1280.webp?v=1c5c81a0 1280w, images/personal-newsletter-1920.webp?v=4c6400b3 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/personal-newsletter.jpg?v=f0cb3c0f" alt="Extra Extra front page styled as a broadsheet, with a live headline ticker, a kinetic banner headline and a preview edition for AI, tennis, cooking, travel and hiking" width="2000" height="1125" loading="lazy" />
             </picture>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/personal-newsletter.mp4?v=1f7f8911" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Extra Extra</h3>
@@ -845,6 +872,7 @@
               <source type="image/webp" srcset="images/fridge-scanner-800.webp?v=2f303902 800w, images/fridge-scanner-1280.webp?v=23d49602 1280w, images/fridge-scanner-1920.webp?v=b6116d1c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/fridge-scanner.jpg?v=f75abc60" alt="Fridge Scanner styled as a fridge door: seven ingredients as colorful magnets, with Chilly the fridge mascot saying Yum, keep 'em coming" width="2000" height="1125" loading="lazy" />
             </picture>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/fridge-scanner.mp4?v=3dc72bcf" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Fridge Scanner</h3>
@@ -1219,6 +1247,40 @@
           el.addEventListener('pointerenter', () => { label.textContent = el.dataset.cursor + ' ↗'; cursor.style.setProperty('--s', 1); });
           el.addEventListener('pointerleave', () => cursor.style.setProperty('--s', 0));
         });
+      }
+
+      /* ── Project preview videos: load when near, play only while visible ── */
+      const saveData = navigator.connection && navigator.connection.saveData;
+      const previews = $$('.shot .clip');
+      const toggle = document.querySelector('.clip-toggle');
+      if (previews.length && !reduce && !saveData && 'IntersectionObserver' in window) {
+        let paused = false;
+        try { paused = localStorage.getItem('previewsPaused') === '1'; } catch (e) {}
+        const onScreen = new Set();
+        const sync = v => (!paused && onScreen.has(v) && !document.hidden) ? v.play().catch(() => {}) : v.pause();
+        previews.forEach(v => v.addEventListener('playing', () => v.parentElement.classList.add('playing')));
+        const loader = new IntersectionObserver(es => es.forEach(e => {
+          if (!e.isIntersecting) return;
+          const v = e.target; v.src = v.dataset.src; v.load(); loader.unobserve(v);
+        }), { rootMargin: '400px 0px' });
+        const watcher = new IntersectionObserver(es => es.forEach(e => {
+          e.isIntersecting ? onScreen.add(e.target) : onScreen.delete(e.target);
+          sync(e.target);
+        }), { threshold: 0.35 });
+        previews.forEach(v => { loader.observe(v); watcher.observe(v); });
+        document.addEventListener('visibilitychange', () => previews.forEach(sync));
+        const render = () => {
+          toggle.setAttribute('aria-pressed', String(paused));
+          toggle.querySelector('.clip-label').textContent = paused ? 'Play previews' : 'Pause previews';
+        };
+        toggle.hidden = false; render();
+        toggle.addEventListener('click', () => {
+          paused = !paused;
+          try { localStorage.setItem('previewsPaused', paused ? '1' : '0'); } catch (e) {}
+          render(); previews.forEach(sync);
+        });
+      } else {
+        previews.forEach(v => v.parentElement.removeChild(v));   // stills only
       }
 
       /* Icons only animate while their tile is on screen */
