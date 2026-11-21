@@ -779,7 +779,7 @@
             <source type="image/webp" srcset="images/world-animal-tracker-800.webp?v=7985fd37 800w, images/world-animal-tracker-1280.webp?v=6a6578f6 1280w, images/world-animal-tracker-1920.webp?v=bd3a09b4 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 1060px" />
             <img src="images/world-animal-tracker.jpg?v=e7be8b52" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
           </picture>
-          <video class="clip" muted loop playsinline preload="none" data-src="media/world-animal-tracker.mp4?v=816d2e18" aria-hidden="true" tabindex="-1"></video>
+          <video class="clip" muted loop playsinline preload="none" data-src="media/world-animal-tracker.mp4?v=816d2e18" data-small-src="media/world-animal-tracker-sm.mp4?v=5905fddf" aria-hidden="true" tabindex="-1"></video>
         </a>
         <div class="feature-text">
           <div data-reveal>
@@ -810,7 +810,7 @@
               <source type="image/webp" srcset="images/weekend-trip-planner-800.webp?v=302ddd16 800w, images/weekend-trip-planner-1280.webp?v=4a060507 1280w, images/weekend-trip-planner-1920.webp?v=22a434d1 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/weekend-trip-planner.jpg?v=d7f588c3" alt="Friday Ticket sample trip to Asheville with illustrated weather tiles, ticket-stub itinerary days and a route drawn on the map" width="2000" height="1125" loading="lazy" />
             </picture>
-            <video class="clip" muted loop playsinline preload="none" data-src="media/weekend-trip-planner.mp4?v=2dbde0e5" aria-hidden="true" tabindex="-1"></video>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/weekend-trip-planner.mp4?v=2dbde0e5" data-small-src="media/weekend-trip-planner-sm.mp4?v=03a2b0db" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Friday Ticket</h3>
@@ -835,7 +835,7 @@
               <source type="image/webp" srcset="images/teaching-english-planner-800.webp?v=d2ac0caf 800w, images/teaching-english-planner-1280.webp?v=e18d9f5d 1280w, images/teaching-english-planner-1920.webp?v=1979444c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/teaching-english-planner.jpg?v=9d109cff" alt="Hello Class home page laid out like a teacher's desk, with a handwritten lesson card, a sticky note and a scrolling band of learners' languages" width="2000" height="1125" loading="lazy" />
             </picture>
-            <video class="clip" muted loop playsinline preload="none" data-src="media/teaching-english-planner.mp4?v=885d2080" aria-hidden="true" tabindex="-1"></video>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/teaching-english-planner.mp4?v=885d2080" data-small-src="media/teaching-english-planner-sm.mp4?v=5a0a749b" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Hello Class</h3>
@@ -860,7 +860,7 @@
               <source type="image/webp" srcset="images/personal-newsletter-800.webp?v=7ea7369d 800w, images/personal-newsletter-1280.webp?v=1c5c81a0 1280w, images/personal-newsletter-1920.webp?v=4c6400b3 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/personal-newsletter.jpg?v=f0cb3c0f" alt="Extra Extra front page styled as a broadsheet, with a live headline ticker, a kinetic banner headline and a preview edition for AI, tennis, cooking, travel and hiking" width="2000" height="1125" loading="lazy" />
             </picture>
-            <video class="clip" muted loop playsinline preload="none" data-src="media/personal-newsletter.mp4?v=1f7f8911" aria-hidden="true" tabindex="-1"></video>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/personal-newsletter.mp4?v=1f7f8911" data-small-src="media/personal-newsletter-sm.mp4?v=c5b9e815" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Extra Extra</h3>
@@ -885,7 +885,7 @@
               <source type="image/webp" srcset="images/fridge-scanner-800.webp?v=b46adc59 800w, images/fridge-scanner-1280.webp?v=4a590cf3 1280w, images/fridge-scanner-1920.webp?v=4153ac8b 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/fridge-scanner.jpg?v=ce1f2abb" alt="Fridge Scanner styled as a food magazine: a Fridge Scanner masthead, an ingredient ticker, and a tomato-red cover with floating 3D broccoli, tomato, avocado, egg and lemon" width="2000" height="1125" loading="lazy" />
             </picture>
-            <video class="clip" muted loop playsinline preload="none" data-src="media/fridge-scanner.mp4?v=d079f3f9" aria-hidden="true" tabindex="-1"></video>
+            <video class="clip" muted loop playsinline preload="none" data-src="media/fridge-scanner.mp4?v=d079f3f9" data-small-src="media/fridge-scanner-sm.mp4?v=11a5f6b4" aria-hidden="true" tabindex="-1"></video>
           </a>
           <div class="work-text" data-reveal>
             <h3 class="project-name">Fridge Scanner</h3>
@@ -1265,6 +1265,7 @@
 
       /* ── Project preview videos: load when near, play only while visible ── */
       const saveData = navigator.connection && navigator.connection.saveData;
+      const narrow = matchMedia('(max-width: 700px)').matches;   // phones get the 480p clips
       const previews = $$('.shot .clip');
       const toggle = document.querySelector('.clip-toggle');
       if (previews.length && !reduce && !saveData && 'IntersectionObserver' in window) {
@@ -1275,7 +1276,7 @@
         previews.forEach(v => v.addEventListener('playing', () => v.parentElement.classList.add('playing')));
         const loader = new IntersectionObserver(es => es.forEach(e => {
           if (!e.isIntersecting) return;
-          const v = e.target; v.src = v.dataset.src; v.load(); loader.unobserve(v);
+          const v = e.target; v.src = (narrow && v.dataset.smallSrc) || v.dataset.src; v.load(); loader.unobserve(v);
         }), { rootMargin: '400px 0px' });
         const watcher = new IntersectionObserver(es => es.forEach(e => {
           e.isIntersecting ? onScreen.add(e.target) : onScreen.delete(e.target);
