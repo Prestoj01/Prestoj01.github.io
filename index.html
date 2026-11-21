@@ -27,6 +27,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
+  <script>
+    /* Visitor stats: Cloudflare Web Analytics (free, no cookies, no cross-site tracking).
+       Paste the site token from Cloudflare → Web Analytics → Add a site. Empty = off.
+       Only counts visits on the live site, not local previews. */
+    (function () {
+      var CF_ANALYTICS_TOKEN = '';
+      if (!CF_ANALYTICS_TOKEN || location.hostname !== 'prestoj01.github.io') return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+      document.head.appendChild(s);
+    })();
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
