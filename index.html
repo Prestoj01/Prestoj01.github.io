@@ -110,6 +110,14 @@
 
     .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .skip {
+      position: fixed; left: var(--s-4); top: var(--s-3); z-index: 60;
+      padding: var(--s-2) var(--s-4); border-radius: 999px;
+      background: var(--ink); color: var(--paper); font-weight: 600; text-decoration: none;
+      transform: translateY(-200%); transition: transform 0.2s var(--ease);
+    }
+    .skip:focus { transform: none; }
+    main:focus { outline: none; }
 
     .mono {
       font-family: var(--mono);
@@ -516,6 +524,7 @@
 </head>
 <body>
 
+  <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
 
   <nav id="nav">
@@ -531,6 +540,7 @@
   </nav>
 
   <!-- HERO -->
+  <main id="main" tabindex="-1">
   <header id="top" class="hero">
     <canvas class="topo" data-topo="light" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
@@ -990,6 +1000,7 @@
       </div>
     </footer>
   </section>
+  </main>
 
   <div class="cursor" aria-hidden="true"><span></span></div>
 
