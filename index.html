@@ -136,7 +136,7 @@
       transition: color 0.2s, background-size 0.35s var(--ease);
     }
     .link:hover { color: var(--primary); background-size: 0 1px; background-position: 100% 100%; }
-    .arrow::after { content: '↗'; display: inline-block; margin-left: 0.3em; font-size: 0.9em; transition: transform 0.3s var(--ease); }
+    .arrow::after { content: '↗' / ''; display: inline-block; margin-left: 0.3em; font-size: 0.9em; transition: transform 0.3s var(--ease); }
     .arrow:hover::after { transform: translate(3px, -3px); }
 
     .btn {
@@ -563,8 +563,8 @@
         <div class="hero-links" data-reveal style="--i:7">
           <a href="mailto:prestonmeekins@gmail.com" class="btn" data-magnetic><span class="dot"></span>Email me</a>
           <a href="Preston_Meekins_Resume.pdf" class="btn btn-ghost" download><span class="dl" aria-hidden="true">↓</span>Résumé (PDF)</a>
-          <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn</a>
-          <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub</a>
+          <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
       <div class="snap-wrap" data-parallax="-0.06">
@@ -771,7 +771,7 @@
       <div class="section-head" data-reveal><span class="mono">Selected work</span><button type="button" class="clip-toggle mono" aria-pressed="false" hidden><span class="clip-icon" aria-hidden="true"></span><span class="clip-label">Pause previews</span></button></div>
 
       <article class="feature">
-        <a class="shot" data-clip data-tilt data-cursor="Open" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker">
+        <a class="shot" data-clip data-tilt data-cursor="Open" href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" aria-label="Open World Animal Tracker (opens in a new tab)">
           <picture>
             <source type="image/webp" srcset="images/world-animal-tracker-800.webp?v=7985fd37 800w, images/world-animal-tracker-1280.webp?v=6a6578f6 1280w, images/world-animal-tracker-1920.webp?v=bd3a09b4 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 1060px" />
             <img src="images/world-animal-tracker.jpg?v=e7be8b52" alt="World Animal Tracker showing lion, elephant, giraffe and rhino sightings across Africa on a dark globe" width="2000" height="1125" />
@@ -793,8 +793,8 @@
             </p>
             <div class="project-stack">TypeScript · MapLibre GL JS · Vite · Python · GitHub Actions · Cloudflare</div>
             <div class="project-links">
-              <a href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/animal-tracker-map" target="_blank" rel="noopener" class="link arrow">Code</a>
+              <a href="https://animal-tracker-map.prestonmeekins.workers.dev/" target="_blank" rel="noopener" class="link arrow">Live site<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://github.com/Prestoj01/animal-tracker-map" target="_blank" rel="noopener" class="link arrow">Code<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
         </div>
@@ -802,7 +802,7 @@
 
       <div class="works">
         <article class="work">
-          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Friday Ticket">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" aria-label="Open Friday Ticket (opens in a new tab)">
             <picture>
               <source type="image/webp" srcset="images/weekend-trip-planner-800.webp?v=302ddd16 800w, images/weekend-trip-planner-1280.webp?v=4a060507 1280w, images/weekend-trip-planner-1920.webp?v=22a434d1 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/weekend-trip-planner.jpg?v=d7f588c3" alt="Friday Ticket sample trip to Asheville with illustrated weather tiles, ticket-stub itinerary days and a route drawn on the map" width="2000" height="1125" loading="lazy" />
@@ -820,14 +820,14 @@
             </p>
             <div class="project-stack">React · TypeScript · Vite · Leaflet · Open-Meteo · Vitest</div>
             <div class="project-links">
-              <a href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/weekend-trip-planner" target="_blank" rel="noopener" class="link arrow">Code</a>
+              <a href="https://prestoj01.github.io/weekend-trip-planner/" target="_blank" rel="noopener" class="link arrow">Live site<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://github.com/Prestoj01/weekend-trip-planner" target="_blank" rel="noopener" class="link arrow">Code<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
         </article>
 
         <article class="work">
-          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open Hello Class">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" aria-label="Open Hello Class (opens in a new tab)">
             <picture>
               <source type="image/webp" srcset="images/teaching-english-planner-800.webp?v=d2ac0caf 800w, images/teaching-english-planner-1280.webp?v=e18d9f5d 1280w, images/teaching-english-planner-1920.webp?v=1979444c 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/teaching-english-planner.jpg?v=9d109cff" alt="Hello Class home page laid out like a teacher's desk, with a handwritten lesson card, a sticky note and a scrolling band of learners' languages" width="2000" height="1125" loading="lazy" />
@@ -845,14 +845,14 @@
             </p>
             <div class="project-stack">React · TypeScript · Zod · Claude API · Vitest · GitHub Pages</div>
             <div class="project-links">
-              <a href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/teaching-english-planner" target="_blank" rel="noopener" class="link arrow">Code</a>
+              <a href="https://prestoj01.github.io/teaching-english-planner/" target="_blank" rel="noopener" class="link arrow">Live site<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://github.com/Prestoj01/teaching-english-planner" target="_blank" rel="noopener" class="link arrow">Code<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
         </article>
 
         <article class="work">
-          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" aria-label="Open Extra Extra">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" aria-label="Open Extra Extra (opens in a new tab)">
             <picture>
               <source type="image/webp" srcset="images/personal-newsletter-800.webp?v=7ea7369d 800w, images/personal-newsletter-1280.webp?v=1c5c81a0 1280w, images/personal-newsletter-1920.webp?v=4c6400b3 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/personal-newsletter.jpg?v=f0cb3c0f" alt="Extra Extra front page styled as a broadsheet, with a live headline ticker, a kinetic banner headline and a preview edition for AI, tennis, cooking, travel and hiking" width="2000" height="1125" loading="lazy" />
@@ -870,14 +870,14 @@
             </p>
             <div class="project-stack">Next.js · TypeScript · Tailwind CSS · GitHub Actions · GitHub Pages</div>
             <div class="project-links">
-              <a href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/personal-newsletter" target="_blank" rel="noopener" class="link arrow">Code</a>
+              <a href="https://prestoj01.github.io/personal-newsletter/" target="_blank" rel="noopener" class="link arrow">Live site<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://github.com/Prestoj01/personal-newsletter" target="_blank" rel="noopener" class="link arrow">Code<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
         </article>
 
         <article class="work">
-          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner">
+          <a class="shot" data-clip data-cursor="Open" href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" aria-label="Open Fridge Scanner (opens in a new tab)">
             <picture>
               <source type="image/webp" srcset="images/fridge-scanner-800.webp?v=b46adc59 800w, images/fridge-scanner-1280.webp?v=4a590cf3 1280w, images/fridge-scanner-1920.webp?v=4153ac8b 1920w" sizes="(max-width: 960px) calc(100vw - 2.5rem), 620px" />
               <img src="images/fridge-scanner.jpg?v=ce1f2abb" alt="Fridge Scanner styled as a food magazine: a Fridge Scanner masthead, an ingredient ticker, and a tomato-red cover with floating 3D broccoli, tomato, avocado, egg and lemon" width="2000" height="1125" loading="lazy" />
@@ -896,8 +896,8 @@
             </p>
             <div class="project-stack">React · TypeScript · Vite · Motion · Cloudflare Workers · Gemini API · Vitest</div>
             <div class="project-links">
-              <a href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" class="link arrow">Live site</a>
-              <a href="https://github.com/Prestoj01/Fridge-Scanner" target="_blank" rel="noopener" class="link arrow">Code</a>
+              <a href="https://prestoj01.github.io/Fridge-Scanner/" target="_blank" rel="noopener" class="link arrow">Live site<span class="sr-only"> (opens in a new tab)</span></a>
+              <a href="https://github.com/Prestoj01/Fridge-Scanner" target="_blank" rel="noopener" class="link arrow">Code<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
         </article>
@@ -916,7 +916,7 @@
               <div class="project-stack">Python · Flask · MySQL · AWS RDS</div>
             </div>
             <span class="go" aria-hidden="true">↗</span>
-          </a>
+          <span class="sr-only"> (opens in a new tab)</span></a>
           <a class="row" data-reveal href="https://github.com/Prestoj01/Presto-Fitness-Pal-Chatbot" target="_blank" rel="noopener">
             <div>
               <h4 class="project-name">Presto Fitness Pal</h4>
@@ -927,7 +927,7 @@
               <div class="project-stack">React · OpenAI API · JavaScript</div>
             </div>
             <span class="go" aria-hidden="true">↗</span>
-          </a>
+          <span class="sr-only"> (opens in a new tab)</span></a>
           <a class="row" data-reveal href="https://github.com/Prestoj01/VR_Fishing_Simulator-CPSC4110" target="_blank" rel="noopener">
             <div>
               <h4 class="project-name">VR Fishing Simulator</h4>
@@ -938,7 +938,7 @@
               <div class="project-stack">Unity · C# · XR Interaction Toolkit · ShaderLab</div>
             </div>
             <span class="go" aria-hidden="true">↗</span>
-          </a>
+          <span class="sr-only"> (opens in a new tab)</span></a>
           <a class="row" data-reveal href="https://github.com/Prestoj01/3720Project" target="_blank" rel="noopener">
             <div>
               <h4 class="project-name">TigerTix</h4>
@@ -949,17 +949,17 @@
               <div class="project-stack">HTML/CSS · JavaScript · C#</div>
             </div>
             <span class="go" aria-hidden="true">↗</span>
-          </a>
+          <span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
 
       <div class="more">
         <h3 class="mono" data-reveal>More on GitHub</h3>
         <ul class="chips" data-stagger>
-          <li data-reveal><a href="https://github.com/Prestoj01/Weather_App" target="_blank" rel="noopener">Weather App <span>JavaScript</span></a></li>
-          <li data-reveal><a href="https://github.com/Prestoj01/Martian-Jumper" target="_blank" rel="noopener">Martian Jumper <span>Python</span></a></li>
-          <li data-reveal><a href="https://github.com/Prestoj01/T9_Converter" target="_blank" rel="noopener">T9 Converter <span>C</span></a></li>
-          <li data-reveal><a href="https://github.com/Prestoj01?tab=repositories" target="_blank" rel="noopener">Everything else <span>↗</span></a></li>
+          <li data-reveal><a href="https://github.com/Prestoj01/Weather_App" target="_blank" rel="noopener">Weather App <span>JavaScript</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li data-reveal><a href="https://github.com/Prestoj01/Martian-Jumper" target="_blank" rel="noopener">Martian Jumper <span>Python</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li data-reveal><a href="https://github.com/Prestoj01/T9_Converter" target="_blank" rel="noopener">T9 Converter <span>C</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li data-reveal><a href="https://github.com/Prestoj01?tab=repositories" target="_blank" rel="noopener">Everything else <span>↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
         </ul>
       </div>
     </div>
@@ -989,8 +989,8 @@
       <div class="contact-links" data-reveal>
         <a href="mailto:prestonmeekins@gmail.com" class="btn" data-magnetic><span class="dot"></span>Email me</a>
         <a href="Preston_Meekins_Resume.pdf" class="btn btn-ghost" download><span class="dl" aria-hidden="true">↓</span>Résumé (PDF)</a>
-        <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn</a>
-        <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub</a>
+        <a href="https://www.linkedin.com/in/preston-meekins/" target="_blank" rel="noopener" class="link arrow">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://github.com/Prestoj01" target="_blank" rel="noopener" class="link arrow">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     </div>
     <footer>
